@@ -1,0 +1,96 @@
+// declaring font mixins
+@mixin fontSans($font-base-weight, $pixels: 0px){
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: $font-base-weight;
+    font-size: $font-size-base + $pixels;
+}
+@mixin fontCursive($font-base-weight, $pixels){
+    font-family: 'Lobster Two', cursive;
+    font-weight: $font-base-weight;
+    font-size: $font-size-base + $pixels;
+}
+
+@mixin colorRed{
+    color:  #e24425;
+}
+
+@mixin padV($padding-base-vertical){
+    padding: $padding-base-vertical 0;
+}
+
+/**********************/
+.border-line{
+    background-color:  $btn-primary-bg;
+    height: 4px;
+}
+
+header .navbar-text{
+    @include fontSans(400, 4px);
+}
+
+header .navbar-text b{
+    @include colorRed;
+    margin-left: 20px;
+}
+
+header .navbar-text small{
+    font-size: 77.77%;
+}
+
+.navbar-top{
+    @include padV(20px);
+}
+
+#navbar-collapse{ background-color: #f1f1f1;}
+.navbar-default .navbar-nav li a{
+    @include fontSans(700, 2px);
+}
+
+.navbar-default .navbar-right li a{
+    @include fontSans(300, 2px);
+    color: #515151;
+}
+.jumbotron{ 
+    background: image-url('banner1.jpg');
+    background-position: center center;
+    margin-bottom: 0px;
+    position: relative;
+    height: 423px;
+  //  padding: $jumbotron-padding;
+}
+@import "compass/layout";
+.jumbotron .container{
+    @include stretch;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.jumbotron .container h1{
+    margin-bottom: 50px;
+}
+.jumbotron .container h1 span{
+    display: block;
+}
+.jumbotron .container h1 span:first-child{
+     @include fontSans(300, 22px);
+}
+.jumbotron .container h1 span:last-child{
+     @include fontCursive(400, 22px);
+}
+.jumbotron .container .form-group{
+    text-align: left;
+}
+
+.jumbotron .container .form-group label{
+    color: #fff;
+}
+
+div.form-group:last-child label{
+    display: block;
+}
+#cuisine{
+  width: 75%;
+  display: inline-block;
+  vertical-align: middle;
+}
